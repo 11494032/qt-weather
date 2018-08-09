@@ -26,8 +26,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     UIBase/UIBaseWindow.cpp \
-    WeatherUI/WeatherMainWindow.cpp
+    WeatherUI/WeatherMainWindow.cpp \
+    WeatherUI/weathercenterwidget.cpp
 
 HEADERS += \
     UIBase/UIBaseWindow.h \
-    WeatherUI/WeatherMainWindow.h
+    WeatherUI/WeatherMainWindow.h \
+    WeatherUI/weathercenterwidget.h

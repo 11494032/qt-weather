@@ -9,6 +9,12 @@ class UIBaseWindow : public QWidget
 public:
     explicit UIBaseWindow(QWidget *parent = nullptr);
     ~UIBaseWindow();
+    // 设置标题
+    void setCustomerWindowTitle(QString titleString);
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    virtual bool nativeEvent(const QByteArray &eventType, void *message, long *result) override;
 
 private:
     int m_nBorder;
@@ -30,6 +36,20 @@ private:
     bool m_IsOnMaxButton = false;
     bool m_IsOnCloseButton = false;
     bool m_IsOnConfigButton = false;
+
+    // 处理鼠标点击事件
+    void disposeMousePressedEvent(void);
+    // 处理鼠标移动事件
+    void disposeMouseMoveEvent(void);
+    // 处理鼠标点击释放事件
+    void disposeMouseReleaseEvent(void);
+
+    // 最小化窗口
+    void minSizeWindow(void);
+    // 最大化窗口
+    void maxSizeWindow(void);
+    // 关闭窗口
+    void closeWindow(void);
 };
 
 #endif // UIBASEWINDOW_H
